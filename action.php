@@ -8,7 +8,7 @@
         <?php      
             $ini = parse_ini_file('moodtrackerconf.ini');
             date_default_timezone_set("America/New_York");
-    
+            
             // connecting to the database
             $conn = pg_connect("host=localhost dbname=" . $ini['dbname'] . " user=" . $ini['username'] . " password=" . $ini['password']) or die('Could not connect: ' . pg_last_error());
     
@@ -20,7 +20,6 @@
             if($date == null){
                 $date=date("Y-m-d");
             }
-            echo $date;
 
             $entry = array("mood"=>$mood, "date"=>$date);
             $sqlCheckDates = "SELECT date FROM " . $ini['tablename'] . " WHERE date = $1";
