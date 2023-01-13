@@ -7,11 +7,11 @@ This was a project I made so that I could track my mood throughout 2023. It's a 
 
 ## Installation
 ### Instructions for Ubuntu (and other Debian distros... *I think*)
-To set up this website for yourself you'll need a server with Apache, PHP, and PostgreSQL. 
+To set up this website for yourself you'll need a server with Apache, PHP, phpPgAdmin, and PostgreSQL. 
 
 *Note: if these commands are being run as a user other than root they will likely have to be run using sudo*
 #### Setting up Apache
-1. To install Apache, PHP, and PostgreSQL: `apt install apache2 postgresql php`
+1. To install Apache, PHP, and PostgreSQL: `apt install apache2 postgresql php phppgadmin`
 2. Next enable/start PostgreSQL and Apache by running `systemctl enable apache2 && systemctl start apache2` and `systemctl enable postgresql && systemctl start postgresql`
 3. Next run `cd /var/www/html` to change directory into the Apache server's root directory. 
 4. Then run `rm -R ./*` to remove the default index.html file
