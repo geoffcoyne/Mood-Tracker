@@ -17,10 +17,11 @@ To set up this website for yourself you'll need a server with Apache, PHP, php-p
 4. Then run `rm -R ./*` to remove the default index.html file
 5. Clone the git repository using `git clone https://github.com/geoffcoyne/Mood-Tracker/` *Note: you may have to install git using `apt install git`*
 6. Move the files out of the cloned repository and delete the repository using `mv ./Mood-Tracker/* ./ && rm -R ./Mood-Tracker`
-7. Use a text editor to edit `moodtrackerconf.ini` change username and password to ones of your choice. These will be used when setting up Postgres. 
-8. If you want to be able to download a CSV from the website run `mkdir CSVs` and `chmod 777 CSVs`
-8. Next run `cd /etc/apache2`
-9. Next run `ls mods-enabled` if *php8.1.conf and php8.1.load* aren't listed run `a2enmod php8.1` and then run `sudo sytemctl restart apache2`
+8. Use a text editor to edit `moodtrackerconf.ini` change username and password to ones of your choice. These will be used when setting up Postgres.
+9. Now run `mv moodtrackerconf.ini /etc` to move the .ini file to etc so it cannot be accessed by the client 
+10. If you want to be able to download a CSV from the website run `mkdir CSVs` and `chmod 777 CSVs`
+11. Next run `cd /etc/apache2`
+12. Next run `ls mods-enabled` if *php8.1.conf and php8.1.load* aren't listed run `a2enmod php8.1` and then run `sudo sytemctl restart apache2`
 
 #### Setting up PostgreSQL
 1. Start by changing users to the user postgres using the command `sudo -i -u postgres`
