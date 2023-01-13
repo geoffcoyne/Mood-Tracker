@@ -18,8 +18,9 @@ To set up this website for yourself you'll need a server with Apache, PHP, php-p
 5. Clone the git repository using `git clone https://github.com/geoffcoyne/Mood-Tracker/` *Note: you may have to install git using `apt install git`*
 6. Move the files out of the cloned repository and delete the repository using `mv ./Mood-Tracker/* ./ && rm -R ./Mood-Tracker`
 7. Use a text editor to edit `moodtrackerconf.ini` change username and password to ones of your choice. These will be used when setting up Postgres. 
+8. If you want to be able to download a CSV from the website run `mkdir CSVs` and `chmod 777 CSVs`
 8. Next run `cd /etc/apache2`
-9. Next run `ls mods-enabled` if *php8.1.conf and php8.1.load* aren't listed run `a2enmod php` and then run `sudo sytemctl restart apache2`
+9. Next run `ls mods-enabled` if *php8.1.conf and php8.1.load* aren't listed run `a2enmod php8.1` and then run `sudo sytemctl restart apache2`
 
 #### Setting up PostgreSQL
 1. Start by changing users to the user postgres using the command `sudo -i -u postgres`
@@ -28,7 +29,8 @@ To set up this website for yourself you'll need a server with Apache, PHP, php-p
 4. Now run `\c mooddatabase` to connect to the database
 5. Next to create the table to hold your mood data run `CREATE TABLE mood  (id SERIAL, mood SMALLINT, date DATE);`
 6. Next create a user for PHP to use to alter data on the database by running `CREATE USER your_username WITH PASSWORD 'your_password;'` *Note: The username and password should be the same as what you put in the .ini file*
-7. You can now exit your database using `exit` and exit the postgres user by running `exit` again
+7. Now grant your user permission to select, instert, and update your table by running `GRANT SELECT, INSERT, UPDATE ON mood TO your_username`
+7. You can now exit your database using `\q` and exit the postgres user by running `exit`
 
 #### Viewing the your website
 Your website should not be live at localhost or whatever your public IP address is! 
