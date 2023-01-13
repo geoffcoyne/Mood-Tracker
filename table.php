@@ -2,13 +2,10 @@
     function downloadAsCSV(){
         date_default_timezone_set("America/New_York");
 
-        $dbname = 'moodDatabase';
-        $tablename = 'mood';
-        $username = 'YOUR POSTGRES USERNAME HERE';
-        $password = "YOUR PASSWORD HERE";
+        $ini = parse_ini_file('moodtrackerconf.ini');
 
-        $conn = pg_connect("host=localhost dbname=" . $dbname . " user=" . $username . " password=" . $password) or die('Could not connect: ' . pg_last_error());
-        $table = pg_query($conn, "SELECT * FROM " . $tablename . " ORDER BY date ASC");
+        $conn = pg_connect("host=localhost dbname=" . $ini['dbname'] . " user=" . $ini['username'] . " password=" . $ini['password']) or die('Could not connect: ' . pg_last_error());
+        $table = pg_query($conn, "SELECT * FROM " . $ini['tablename'] . " ORDER BY date ASC");
         $fileName = "MoodData-" . date('m-d-Y') . ".csv";
 
         $csvfile = fopen($fileName, 'w');
@@ -52,15 +49,13 @@
                 <div class="tablediv">
                     <table>
                         <?php
-                            $dbname = 'moodDatabase';
-                            $tablename = 'mood';
-                            $username = 'YOUR POSTGRES USERNAME HERE';
-                            $password = "YOUR PASSWORD HERE";
+                            $ini = parse_ini_file('moodtrackerconf.ini');
+
                             date_default_timezone_set("America/New_York");
 
-                            $conn = pg_connect("host=localhost dbname=" . $dbname . " user=" . $username . " password=" . $password) or die('Could not connect: ' . pg_last_error());
+                            $conn = pg_connect("host=localhost dbname=" . $ini['dbname'] . " user=" . $ini['username'] . " password=" . $ini['password']) or die('Could not connect: ' . pg_last_error());
 
-                            $table = pg_query($conn, "SELECT * FROM " . $tablename . " ORDER BY date ASC");
+                            $table = pg_query($conn, "SELECT * FROM " . $ini['tablename'] . " ORDER BY date ASC");
                             $i = 0;
                             echo"<tr><th>#</th>";
                             while ($i < pg_num_fields($table)) {

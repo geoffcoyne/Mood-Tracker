@@ -6,16 +6,13 @@
     </head>
     <body>
         <?php      
-            $dbname = 'moodDatabase';
-            $tablename = 'mood';
-            $username = 'YOUR POSTGRES USERNAME HERE';
-            $password = "YOUR PASSWORD HERE";
+            $ini = parse_ini_file('moodtrackerconf.ini');
             date_default_timezone_set("America/New_York");
     
             // connecting to the database
-            $conn = pg_connect("host=localhost dbname=" . $dbname . " user=" . $username . " password=" . $password) or die('Could not connect: ' . pg_last_error());
+            $conn = pg_connect("host=localhost dbname=" . $ini['dbname'] . " user=" . $ini['username'] . " password=" . $ini['password']) or die('Could not connect: ' . pg_last_error());
     
-            $mood = $_POST["mood"];
+            $mood = (int)$_POST["mood"];
             $date = $_POST["date"];
             if (!(is_int($mood))){
                 $mood = 'error';
@@ -26,16 +23,16 @@
             echo $date;
 
             $entry = array("mood"=>$mood, "date"=>$date);
-            $sqlCheckDates = "SELECT date FROM " . $tablename . " WHERE date = $1";
+            $sqlCheckDates = "SELECT date FROM " . $ini['tablename'] . " WHERE date = $1";
             $checkDates = pg_prepare($conn, 'checkDates', $sqlCheckDates);
             $checkDates = pg_execute($conn, 'checkDates', array($date));
 
             if($mood != "error" and pg_num_rows($checkDates) == 0){
-                $insert = pg_prepare($conn, "insertQuery", "INSERT INTO " . $tablename . " (mood, date) VALUES ($1 , $2)");
+                $insert = pg_prepare($conn, "insertQuery", "INSERT INTO " . $ini['tablename'] . " (mood, date) VALUES ($1 , $2)");
                 $insert = pg_execute($conn, "insertQuery", array($mood, $date));
             }
             elseif($mood != "error"){
-                $update = pg_prepare($conn, "updateQuery", "UPDATE " . $tablename . " SET mood = $1 WHERE date = $2");
+                $update = pg_prepare($conn, "updateQuery", "UPDATE " . $ini['tablename'] . " SET mood = $1 WHERE date = $2");
                 $update = pg_execute($conn, "updateQuery", array($mood, $date));
             }
             pg_close($conn)
