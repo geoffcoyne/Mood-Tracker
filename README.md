@@ -6,7 +6,7 @@ This was a project I made so that I could track my mood throughout 2023. It's a 
 **IF YOU ARE NOT COMFORTABLE WITH PEOPLE HAVING A GENERAL IDEA OF YOUR MOOD, DAY TO DAY, THIS IS PROBABLY NOT THE BEST SOLUTION FOR YOU.**
 
 ## Installation
-### Instructions for Ubuntu
+### Instructions for Ubuntu (and other Debian distros... *I think*)
 To set up this website for yourself you'll need a server with Apache, PHP, and PostgreSQL. 
 
 *Note: if these commands are being run as a user other than root they will likely have to be run using sudo*
