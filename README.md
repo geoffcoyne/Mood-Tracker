@@ -27,7 +27,7 @@ To set up this website for yourself you'll need a server wmith Apache, PHP, and 
 3. Next run `CREATE DATABASE mooddatabase` to create a database for the application to use
 4. Now run `\c mooddatabase` to connect to the database
 5. Next to create the table to hold your mood data run `CREATE TABLE mood  (id SERIAL, mood SMALLINT, date DATE);`
-6. Next create a user for PHP to use to alter data on the database, the username and password should be the same as what you put in the .ini file. `CREATE USER your_username WHERE password=your_password;` 
+6. Next create a user for PHP to use to alter data on the database by running `CREATE USER your_username WHERE password=your_password;` *Note: The username and password should be the same as what you put in the .ini file*
 7. You can now exit your database using `exit` and exit the postgres user by running `exit` again
 
 #### Viewing the your website
