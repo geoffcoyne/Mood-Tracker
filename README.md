@@ -1,5 +1,8 @@
 # Mood-Tracker
 This was a project I made so that I could track my mood throughout 2023. It's a website that uses PHP and a PostgreSQL database. It allows you to select between 4 different moods for each day which is then stored in the database as a value between 0 and 3, with 3 being the highest mood. It also allows you to view the data in a table and download it as a CSV.
+![hompage](https://user-images.githubusercontent.com/9003050/212434721-bf63237b-2f74-4a14-8815-ac87e424572f.png)
+![table](https://user-images.githubusercontent.com/9003050/212434725-9604604c-e1cd-4bd4-91e5-396dad6fed63.png)
+
 
 **IT SHOULD BE NOTED THAT THIS APPLICATION DOES NOTHING TO SECURE YOUR DATA. THE DATA IS NOT HASHED AND THERE IS NO PASSWORD REQURIRED TO ENTER OR VIEW DATA ON THE SITE.**
 
