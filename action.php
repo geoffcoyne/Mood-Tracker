@@ -6,7 +6,7 @@
     </head>
     <body>
         <?php      
-            $ini = parse_ini_file('moodtrackerconf.ini');
+            $ini = parse_ini_file('/etc/moodtrackerconf.ini');
             date_default_timezone_set("America/New_York");
             
             // connecting to the database

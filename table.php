@@ -2,7 +2,7 @@
     function downloadAsCSV(){
         date_default_timezone_set("America/New_York");
 
-        $ini = parse_ini_file('moodtrackerconf.ini');
+        $ini = parse_ini_file('/etc/moodtrackerconf.ini');
 
         $conn = pg_connect("host=localhost dbname=" . $ini['dbname'] . " user=" . $ini['username'] . " password=" . $ini['password']) or die('Could not connect: ' . pg_last_error());
         $table = pg_query($conn, "SELECT * FROM " . $ini['tablename'] . " ORDER BY date ASC");
@@ -49,7 +49,7 @@
                 <div class="tablediv">
                     <table>
                         <?php
-                            $ini = parse_ini_file('moodtrackerconf.ini');
+                            $ini = parse_ini_file('/etc/moodtrackerconf.ini');
 
                             date_default_timezone_set("America/New_York");
 
