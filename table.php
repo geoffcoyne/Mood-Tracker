@@ -6,7 +6,7 @@
 
         $conn = pg_connect("host=localhost dbname=" . $ini['dbname'] . " user=" . $ini['username'] . " password=" . $ini['password']) or die('Could not connect: ' . pg_last_error());
         $table = pg_query($conn, "SELECT * FROM " . $ini['tablename'] . " ORDER BY date ASC");
-        $fileName = "MoodData-" . date('m-d-Y') . ".csv";
+        $fileName = "CSVs/MoodData-" . date('m-d-Y') . ".csv";
 
         $csvfile = fopen($fileName, 'w');
                     
