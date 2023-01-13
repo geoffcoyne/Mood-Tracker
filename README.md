@@ -7,7 +7,7 @@ This was a project I made so that I could track my mood throughout 2023. It's a 
 
 ## Installation
 ### Instructions for Ubuntu
-To set up this website for yourself you'll need a server wmith Apache, PHP, and PostgreSQL. 
+To set up this website for yourself you'll need a server with Apache, PHP, and PostgreSQL. 
 
 *Note: if these commands are being run as a user other than root they will likely have to be run using sudo*
 #### Setting up Apache
