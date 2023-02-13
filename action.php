@@ -24,7 +24,7 @@
             if (!(is_int($mood))){
                 $mood = 'error';
             }
-            if($date == null){
+            if($date === null){
                 $date=date("Y-m-d");
             }
 
@@ -33,11 +33,11 @@
             $checkDates = pg_prepare($conn, 'checkDates', $sqlCheckDates);
             $checkDates = pg_execute($conn, 'checkDates', array($date));
 
-            if($mood != "error" and pg_num_rows($checkDates) == 0){
+            if($mood !== "error" and pg_num_rows($checkDates) == 0){
                 $insert = pg_prepare($conn, "insertQuery", "INSERT INTO " . $ini['tablename'] . " (mood, date) VALUES ($1 , $2)");
                 $insert = pg_execute($conn, "insertQuery", array($mood, $date));
             }
-            elseif($mood != "error"){
+            elseif($mood !== "error"){
                 $update = pg_prepare($conn, "updateQuery", "UPDATE " . $ini['tablename'] . " SET mood = $1 WHERE date = $2");
                 $update = pg_execute($conn, "updateQuery", array($mood, $date));
             }
