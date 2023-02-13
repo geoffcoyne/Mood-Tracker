@@ -35,3 +35,8 @@ To set up this website for yourself you'll need a server with Apache, PHP, php-p
 
 #### Viewing the your website
 Your website should not be live at localhost or whatever your public IP address is! 
+
+![hompage](https://user-images.githubusercontent.com/9003050/212434891-b5564491-1de5-4758-953f-b2f81fb0a449.png)
+
+![table](https://user-images.githubusercontent.com/9003050/212434892-e95db4d8-166c-4f9f-a7fd-566533418756.png)
+
