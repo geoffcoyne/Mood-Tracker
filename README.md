@@ -34,7 +34,7 @@ To set up this website for yourself you'll need a server with Apache, PHP, php-p
 7. You can now exit your database using `\q` and exit the postgres user by running `exit`
 
 #### Viewing the your website
-Your website should not be live at localhost or whatever your public IP address is! 
+Your website should now be live at localhost or whatever your public IP address is! 
 
 ![hompage](https://user-images.githubusercontent.com/9003050/212434891-b5564491-1de5-4758-953f-b2f81fb0a449.png)
 
